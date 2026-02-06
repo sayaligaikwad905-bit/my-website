@@ -1,0 +1,392 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f8ff;
+}
+
+/* NAVBAR */
+nav {
+  background: linear-gradient(to right, #1fa2c7, #1c8db3);
+  height: 70px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav-links a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+  color: #ffeb3b;
+}
+
+/* AUTH WRAPPER */
+.auth-wrapper {
+  display: flex;
+  min-height: calc(100vh - 70px);
+}
+
+/* LEFT PANEL */
+.auth-left {
+  width: 50%;
+  background: linear-gradient(135deg, #0d6efd, #20c997);
+  color: white;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-left h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.auth-left p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* FEATURES */
+.feature-list {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.feature-list li {
+  font-size: 18px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.feature-list i {
+  font-size: 20px;
+  color: #ffeb3b;
+}
+
+/* ILLUSTRATION */
+.illustration {
+  width: 280px;
+  margin-top: 20px;
+  border-radius: 50%;
+  padding: 15px;
+  background: linear-gradient(145deg, #ffffff, #e3f2fd);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.illustration:hover {
+  transform: scale(1.05);
+}
+
+/* RIGHT PANEL */
+.auth-right {
+  width: 50%;
+  background: white;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* LOGIN FORM */
+.auth-right h2 {
+  text-align: center;
+  color: #0d6efd;
+  margin-bottom: 25px;
+}
+
+.auth-right input,
+.auth-right select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.auth-right button {
+  background: linear-gradient(to right, #1fa2c7, #1c8db3);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.auth-right button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+}
+
+.auth-right a {
+  text-align: center;
+  margin-top: 15px;
+  color: #1c8db3;
+  text-decoration: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .auth-wrapper {
+    flex-direction: column;
+  }
+
+  .auth-left,
+  .auth-right {
+    width: 100%;
+    padding: 40px 20px;
+  }
+
+  .illustration {
+    width: 220px;
+  }
+}
+
+/* Login Navbar – match register page */
+nav {
+  background: linear-gradient(to right, #3bb2d6, #2fa4c9);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+/* Login illustration floating effect */
+.auth-left .illustration {
+  animation: floatLoginImg 4s ease-in-out infinite;
+}
+
+@keyframes floatLoginImg {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+/* Input focus animation */
+.auth-right input:focus {
+  border-color: #1fa2c7;
+  box-shadow: 0 0 0 3px rgba(31, 162, 199, 0.25);
+  outline: none;
+  transition: 0.3s;
+}
+/* Login button animation */
+.auth-right button {
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-right button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.25);
+  transition: left 0.4s;
+}
+
+.auth-right button:hover::after {
+  left: 100%;
+}
+
+.auth-right button:hover {
+  transform: translateY(-2px);
+}
+/* Navbar entrance animation */
+nav {
+  animation: navbarSlide 0.8s ease-out;
+}
+
+@keyframes navbarSlide {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* Logo hover animation */
+.nav-logo {
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: translateY(-2px);
+}
+/* Navbar link hover effect */
+.nav-links a {
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+/* NAVBAR */
+nav {
+  background: linear-gradient(to right, #20c997, #0d6efd);
+  height: 70px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: navbarSlide 0.8s ease-out;
+}
+/* LOGIN PAGE FEATURE LIST (IMPROVED LIKE REGISTER PAGE) */
+.auth-left .feature-list {
+  list-style: none;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.auth-left .feature-list li {
+  font-size: 17px;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  transition: transform 0.3s, background 0.3s;
+}
+
+.auth-left .feature-list li i {
+  font-size: 20px;
+  color: #ffdd57; /* bright icon color */
+  transition: color 0.3s;
+}
+
+/* Hover effect on features */
+.auth-left .feature-list li:hover {
+  transform: translateX(5px);
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+}
+
+.auth-left .feature-list li:hover i {
+  color: #ffd700; /* gold icon hover */
+}
+/* LOGIN TITLE EFFECT */
+.auth-right h2 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #1fa2c7, #1c8db3, #20c997);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: floatTitle 3s ease-in-out infinite;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Floating animation */
+@keyframes floatTitle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+/* ================= LOGIN TITLE EFFECT ================= */
+.auth-right h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #1fa2c7, #20c997, #1c8db3, #ffb347);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 4s ease infinite, floatTitle 3s ease-in-out infinite;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Gradient animation */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating animation */
+@keyframes floatTitle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+/* LEFT PANEL TITLE */
+.auth-left h1 {
+  font-size: 48px;
+  font-weight: 800;
+  background: linear-gradient(90deg, #ffb347, #1fa2c7, #20c997, #1c8db3);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 6s ease infinite, floatTitle 4s ease-in-out infinite;
+  text-align: center;
+  text-shadow: 2px 2px 12px rgba(0,0,0,0.15);
+}
+
+/* TAGLINE */
+.auth-left p {
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  opacity: 0.85;
+  text-align: center;
+  margin-top: 10px;
+  animation: floatTitle 4s ease-in-out infinite;
+}
+
+/* Gradient animation (shared) */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating effect */
+@keyframes floatTitle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+.auth-left h1 {
+  font-size: 48px;
+  font-weight: 800;
+  color: white; /* fallback */
+  background: linear-gradient(90deg, #ffeb3b, #ff7f50, #20c997, #1fa2c7);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.25), 0 0 10px rgba(255,255,255,0.2); /* makes it pop */
+  animation: gradientAnimation 6s ease infinite, floatTitle 4s ease-in-out infinite;
+  text-align: center;
+}

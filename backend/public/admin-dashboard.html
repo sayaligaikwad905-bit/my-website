@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard | LocalEase</title>
+  <link rel="stylesheet" href="admin.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- NAVBAR (same style as login/register) -->
+<nav>
+  <div class="nav-logo">LocalEase</div>
+  <div class="nav-links">
+    <a href="#">Dashboard</a>
+    <a href="#">Providers</a>
+    <a href="#">Users</a>
+    <a href="#">Reports</a>
+    <a href="login.html">Logout</a>
+  </div>
+</nav>
+
+<!-- DASHBOARD -->
+<section class="dashboard">
+
+  <h1>Admin Dashboard</h1>
+  <p class="subtitle">Manage users, providers & platform activity</p>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat-card">
+      <i class="fas fa-users"></i>
+      <h3>120+</h3>
+      <p>Total Users</p>
+    </div>
+
+    <div class="stat-card">
+      <i class="fas fa-user-check"></i>
+      <h3>45</h3>
+      <p>Verified Providers</p>
+    </div>
+
+    <div class="stat-card">
+      <i class="fas fa-clock"></i>
+      <h3>8</h3>
+      <p>Pending Approvals</p>
+    </div>
+
+    <div class="stat-card">
+      <i class="fas fa-chart-line"></i>
+      <h3>70%</h3>
+      <p>Top Service: AC Repair</p>
+    </div>
+  </div>
+
+  <!-- PROVIDER APPROVAL TABLE -->
+  <div class="table-section">
+    <h2>Provider Verification</h2>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Service</th>
+        <th>Location</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+
+      <tr>
+        <td>Rahul Sharma</td>
+        <td>Electrician</td>
+        <td>Pune</td>
+        <td><span class="pending">Pending</span></td>
+        <td>
+          <button class="approve">Approve</button>
+          <button class="reject">Reject</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Anita Patil</td>
+        <td>Plumber</td>
+        <td>Mumbai</td>
+        <td><span class="pending">Pending</span></td>
+        <td>
+          <button class="approve">Approve</button>
+          <button class="reject">Reject</button>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+
+</section>
+
+</body>
+</html>

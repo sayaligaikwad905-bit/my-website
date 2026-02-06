@@ -1,0 +1,431 @@
+/* ================= GENERAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f0f8ff;
+  color: #333;
+}
+/* ================= NAVBAR ================= */
+.navbar {
+  background: linear-gradient(to right, #0d6efd, #20c997);
+  height: 50px;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.nav-logo {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.25));
+  transition: transform 0.3s;
+}
+
+.nav-links a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #ffeb3b;
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffeb3b;
+  transform: translateY(-2px);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  background: url("host-services.png") no-repeat;
+  background-size: cover;
+  background-position: center top; /* Focus on top to show middle person */
+  width: 100%;
+  height: 80vh; /* Adjust height so it fits with navbar */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Push content slightly down */
+  align-items: center;
+  text-align: center;
+  padding: 0 20px 50px 20px; /* Bottom padding for breathing space */
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.15); /* minimal overlay to keep photo visible */
+  z-index: 1;
+}
+
+.hero h1 {
+  position: relative;
+  z-index: 2;
+  font-size: 56px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 2px 2px 15px rgba(0,0,0,0.7);
+  padding: 10px 25px;
+  background: rgba(13,110,253,0.35);
+  border-radius: 12px;
+  animation: fadeInDown 1s ease forwards;
+}
+
+.hero p {
+  position: relative;
+  z-index: 2;
+  font-size: 20px;
+  color: #f0f8ff;
+  max-width: 650px;
+  margin: 15px 0 30px;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.5);
+  animation: fadeInUp 1s ease forwards 0.5s;
+}
+
+.hero .hero-features {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+  animation: fadeInUp 1s ease forwards 1s;
+}
+
+.hero-feature {
+  background: rgb(76, 56, 252);
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s, background 0.3s;
+  animation: floatCard 2.5s ease-in-out infinite alternate;
+}
+
+.hero-feature:hover {
+  transform: scale(1.07) translateY(-4px);
+  background: rgb(255,255,255,1);
+}
+
+.hero .cta-btn {
+  background: linear-gradient(45deg, #f90c0c, #f5ad11fb);
+  color: #fff;
+  border: none;
+  padding: 16px 40px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeInUp 1s ease forwards 1.5s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+.hero.cta-btn:hover{
+  transform: scale(1.05);
+  box-shadow: 0 14px 30px
+  rgba(0,0,0,0.35);
+}
+
+/* ================= HERO ANIMATIONS ================= */
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatCard {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
+/* ================= SECTION TITLE ================= */
+.section-title {
+  text-align: center;
+  margin: 40px 0 25px;
+  font-size: 34px;
+  color: #0d6efd;
+  font-weight: 700;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.15);
+}
+
+/* ================= WHY CHOOSE US ================= */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 20px;
+}
+
+.feature-card {
+  background: linear-gradient(145deg,#a6e2f6,#ffffff);
+  width: 230px;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.244);
+}
+
+/* ================= SERVICES ================= */
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+.card {
+  background: #f0f5f7fb;
+  width: 260px;
+  padding: 28px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 28px rgba(85, 175, 231, 0.937);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 18px 35px rgba(171, 125, 194, 0.62);
+}
+
+.card .icon {
+  font-size: 50px;
+  margin-bottom: 15px;
+  color: #ff6b6b; /* different for each card can adjust inline if needed */
+  transition: transform 0.3s;
+}
+
+.card:hover .icon {
+  transform: scale(1.3) rotate(-10deg);
+}
+
+.card h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.card .rating {
+  margin: 8px 0;
+  color: #ffb400;
+}
+
+.card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.card .book-btn {
+  margin-top: 12px;
+  background: linear-gradient(45deg,#0d6efd,#20c997);
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card .book-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+}
+
+/* ================= HOW IT WORKS ================= */
+.how-it-works {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 20px;
+}
+
+.step-card {
+  background: linear-gradient(145deg,#fff0f5,#ffffff);
+  width: 230px;
+  padding: 22px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.step-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+}
+
+.step-card i {
+  font-size: 40px;
+  margin-bottom: 12px;
+  color: #20c997; /* different from service icons */
+  transition: transform 0.3s;
+}
+
+.step-card:hover i {
+  transform: scale(1.3) rotate(10deg);
+}
+
+/* ================= NEWSLETTER ================= */
+.newsletter {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg,#629df4,#20c997);
+  color: #f5efef;
+  border-radius: 20px;
+  margin: 40px 20px;
+}
+
+.newsletter input {
+  padding: 12px 18px;
+  width: 250px;
+  border-radius: 25px;
+  border: none;
+  margin-right: 10px;
+}
+
+.newsletter button {
+  padding: 12px 25px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  background: #ff6b6b;
+  color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.newsletter button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+/* ================= PREMIUM SERVICE ICON COLORS – REALISTIC ================= */
+
+.card .icon i {
+  font-size: 42px;
+  padding: 16px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s, box-shadow 0.3s, color 0.3s;
+  background: #ffffff; /* keep clean white bg */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* Specific realistic colors for each service */
+.card:nth-child(1) .icon i { color: #4a4a4a; } /* Plumber – gray */
+.card:nth-child(2) .icon i { color: #f1c40f; } /* Electrician – gold/yellow */
+.card:nth-child(3) .icon i { color: #1abc9c; } /* Home Cleaning – teal */
+.card:nth-child(4) .icon i { color: #7f8c8d; } /* Mechanic – dark gray */
+.card:nth-child(5) .icon i { color: #9b59b6; } /* Maid Service – purple */
+
+.card:hover .icon i {
+  transform: scale(1.2) rotate(10deg);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+/* ================= SERVICES SECTION HIGHLIGHT ================= */
+.services {
+  background: linear-gradient(135deg, #f0f8ff, #e6f2fa); /* subtle professional gradient */
+  padding: 40px 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05); /* subtle shadow for section */
+}
+
+/* Floating effect for entire card */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: floatServiceCard 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatServiceCard {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* Card hover for highlight */
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 18px 30px rgba(0,0,0,0.25);
+}
+/* ================= FOOTER ================= */
+.footer {
+  background: linear-gradient(to right, #1f4fd8, #28c7d9);
+  color: white;
+  text-align: center;
+  padding: 26px 15px;
+  margin-top: 35px;
+}
+
+.footer p {
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .hero-features {
+    gap: 12px;
+  }
+
+  .cta-btn {
+    font-size: 15px;
+    padding: 12px 22px;
+  }
+
+  .card {
+    width: 200px;
+    padding: 20px;
+  }
+}

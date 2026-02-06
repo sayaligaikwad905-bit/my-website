@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LocalEase – Home</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo">LocalEase</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Welcome to LocalEase</h1>
+  <p>Your one-stop platform to find trusted local services easily.</p>
+
+  <div class="hero-features">
+    <div class="hero-feature">✔ Verified Professionals</div>
+    <div class="hero-feature">⚡ Fast Booking</div>
+    <div class="hero-feature">💰 Affordable Pricing</div>
+  </div>
+
+  <button class="cta-btn" onclick="window.location.href='login.html'">
+    Book a Service
+  </button>
+</section>
+
+<!-- WHY CHOOSE LOCALEASE -->
+<section class="why-choose">
+  <div class="container">
+
+    <h2 class="section-title">Why Choose LocalEase?</h2>
+
+    <div class="features">
+
+      <div class="feature-card">
+        <h3>Verified Professionals</h3>
+        <div class="counter" data-target="500">0</div>
+        <p>All service providers are background verified.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Quick Booking</h3>
+        <div class="counter" data-target="1200">0</div>
+        <p>Fast service at your doorstep.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Affordable Pricing</h3>
+        <div class="counter" data-target="98">0</div>
+        <p>Best quality services at reasonable prices.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Location Based Search</h3>
+        <div class="counter" data-target="50">0</div>
+        <p>Find nearby services easily.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- SERVICES -->
+<h2 class="section-title">Our Services</h2>
+
+<div class="services">
+
+  <div class="card">
+    <div class="icon"><i class="fa-solid fa-wrench"></i></div>
+    <h3>Plumber <span class="verified">✔</span></h3>
+    <div class="rating">★ ★ ★ ★ ☆</div>
+    <p>Fixing pipes, taps, leakage and water issues.</p>
+    <button class="book-btn" onclick="location.href='login.html'">Book Now</button>
+  </div>
+
+  <div class="card">
+    <div class="icon"><i class="fa-solid fa-bolt"></i></div>
+    <h3>Electrician <span class="verified">✔</span></h3>
+    <div class="rating">★ ★ ★ ★ ★</div>
+    <p>Electrical wiring, lights, fans and power issues.</p>
+    <button class="book-btn" onclick="location.href='login.html'">Book Now</button>
+  </div>
+
+  <div class="card">
+    <div class="icon"><i class="fa-solid fa-broom"></i></div>
+    <h3>Home Cleaning <span class="verified">✔</span></h3>
+    <div class="rating">★ ★ ★ ★ ☆</div>
+    <p>Professional cleaning for homes and offices.</p>
+    <button class="book-btn" onclick="location.href='login.html'">Book Now</button>
+  </div>
+
+  <div class="card">
+    <div class="icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+    <h3>Mechanic <span class="verified">✔</span></h3>
+    <div class="rating">★ ★ ★ ★ ★</div>
+    <p>Two-wheeler and four-wheeler repair services.</p>
+    <button class="book-btn" onclick="location.href='login.html'">Book Now</button>
+  </div>
+
+  <div class="card">
+    <div class="icon"><i class="fa-solid fa-user-gear"></i></div>
+    <h3>Maid Service <span class="verified">✔</span></h3>
+    <div class="rating">★ ★ ★ ★ ☆</div>
+    <p>Daily household help for cleaning and chores.</p>
+    <button class="book-btn" onclick="location.href='login.html'">Book Now</button>
+  </div>
+
+</div>
+
+<!-- HOW IT WORKS -->
+<h2 class="section-title">How It Works</h2>
+
+<div class="how-it-works">
+
+  <div class="step-card">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <h3>Search Service</h3>
+    <p>Find the service you need quickly.</p>
+  </div>
+
+  <div class="step-card">
+    <i class="fa-solid fa-calendar-check"></i>
+    <h3>Book Online</h3>
+    <p>Schedule a convenient time.</p>
+  </div>
+
+  <div class="step-card">
+    <i class="fa-solid fa-location-dot"></i>
+    <h3>Track & Pay</h3>
+    <p>Track your service and pay securely.</p>
+  </div>
+
+  <div class="step-card">
+    <i class="fa-solid fa-star"></i>
+    <h3>Rate & Review</h3>
+    <p>Help others choose trusted services.</p>
+  </div>
+
+</div>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <h2>Stay Updated</h2>
+ <p>Subscribe to get latest services and offers</p>
+  <input type="email" placeholder="Enter your email">
+  <button>Subscribe</button>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <h3>LocalEase</h3>
+  <p>Your trusted platform for local services</p>
+  <p>📍 India | 📞 +91 98765 43210 | ✉️ localease@gmail.com</p>
+  <p class="copyright">© 2026 LocalEase. All rights reserved.</p>
+</footer>
+
+<script>
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+  const updateCount = () => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+    const increment = target / 100;
+
+    if (count < target) {
+      counter.innerText = Math.ceil(count + increment);
+      setTimeout(updateCount, 20);
+    } else {
+      counter.innerText = target + (target === 98 ? '%' : '+');
+    }
+  };
+  updateCount();
+});
+</script>
+
+</body>
+</html>

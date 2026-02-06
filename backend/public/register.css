@@ -1,0 +1,498 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: Arial, sans-serif;
+  background: #e0f7fa;
+}
+
+/* NAVBAR */
+nav {
+  background: linear-gradient(to right, #4fc3f7, #0288d1);
+  height: 70px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.nav-logo {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav-links a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffd54f;
+}
+
+/* NAVBAR SHRINK EFFECT */
+nav.shrink {
+  height: 55px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+nav.shrink .nav-logo {
+  font-size: 20px;
+}
+
+/* AUTH WRAPPER */
+.auth-wrapper {
+  display: flex;
+  min-height: calc(100vh - 70px);
+}
+
+/* LEFT PANEL */
+.auth-left {
+  width: 50%;
+  background: linear-gradient(135deg, #0288d1, #26c6da);
+  color: white;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-left h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.auth-left p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* FEATURES */
+.feature-list {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.feature-list li {
+  font-size: 18px;
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.3s;
+}
+
+.feature-list li:hover {
+  transform: translateX(5px);
+}
+
+.feature-list i {
+  font-size: 20px;
+  color: #ffd54f;
+}
+
+/* ILLUSTRATION */
+.illustration {
+  width: 280px;
+  margin-top: 20px;
+  border-radius: 50%;
+  padding: 15px;
+  background: linear-gradient(145deg, #ffffff, #b3e5fc);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  transition: transform 0.3s;
+}
+
+.illustration:hover {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+/* RIGHT PANEL */
+.auth-right {
+  width: 50%;
+  background: white;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+/* FORM */
+.auth-right h2 {
+  text-align: center;
+  color: #0288d1;
+  margin-bottom: 25px;
+}
+
+.auth-right input,
+.auth-right select {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  transition: all 0.3s;
+}
+
+.auth-right input:focus,
+.auth-right select:focus {
+  border-color: #0288d1;
+  box-shadow: 0 0 10px rgba(2,136,209,0.3);
+  outline: none;
+}
+
+.auth-right button {
+  width: 100%;
+  background: linear-gradient(to right, #0288d1, #26c6da);
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(2,136,209,0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.auth-right button:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 22px rgba(2,136,209,0.45);
+}
+
+.auth-right a {
+  display: block;
+  text-align: center;
+  margin-top: 18px;
+  color: #0288d1;
+  text-decoration: none;
+}
+
+.auth-right a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .auth-wrapper {
+    flex-direction: column;
+  }
+
+  .auth-left,
+  .auth-right {
+    width: 100%;
+    padding: 40px 20px;
+  }
+
+  .illustration {
+    width: 220px;
+  }
+}
+
+
+/* ======================================================
+   REGISTER PAGE – FEATURE EFFECTS (DIFFERENT FROM LOGIN)
+====================================================== */
+
+.feature-list li {
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Different icon color for register */
+.feature-list i {
+  color: #ffd166; /* warm yellow (different feel) */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.feature-list li:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-4px);
+}
+
+.feature-list li:hover i {
+  transform: rotate(-6deg) scale(1.15);
+  color: #ffffff;
+}
+/* Reduce space between feature items (REGISTER PAGE) */
+.feature-list li {
+  margin: 6px 0;   /* you can try 4px or 5px if you want tighter */
+}
+.feature-list li {
+  margin: 4px 0;
+}
+/* Register page illustration size fix */
+.auth-left .illustration {
+  width: 220px;          /* smaller but still visible */
+  margin-top: 10px;      /* bring it up */
+}
+
+/* Laptop / medium screens */
+@media (max-width: 1200px) {
+  .auth-left .illustration {
+    width: 200px;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+  .auth-left .illustration {
+    width: 170px;
+    margin-top: 0;
+  }
+}
+.auth-left .illustration {
+  animation: floatImg 4s ease-in-out infinite;
+}
+
+@keyframes floatImg {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ======================================================
+   INPUT FOCUS ANIMATION (REGISTER STYLE)
+====================================================== */
+
+.auth-right input,
+.auth-right select {
+  transition: 
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease,
+    background-color 0.3s ease;
+}
+
+.auth-right input:focus,
+.auth-right select:focus {
+  outline: none;
+  border-color: #20c997;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(32, 201, 151, 0.28);
+  transform: translateY(-2px);
+}
+
+/* Placeholder movement */
+.auth-right input::placeholder {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.auth-right input:focus::placeholder {
+  opacity: 0.4;
+  transform: translateX(5px);
+}
+
+/* ======================================================
+   REGISTER BUTTON – PREMIUM ANIMATION
+====================================================== */
+
+.auth-right button {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Shine sweep */
+.auth-right button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.45),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.auth-right button:hover::after {
+  left: 120%;
+}
+
+.auth-right button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(28,141,179,0.4);
+}
+
+.auth-right button:active {
+  transform: scale(0.97);
+}
+
+/* ======================================================
+   FORM CARD SOFT LIFT (REGISTER ONLY FEEL)
+====================================================== */
+
+.auth-right {
+  transition: transform 0.4s ease;
+}
+
+.auth-right:hover {
+  transform: translateY(-4px);
+}
+
+/* NAVBAR – SAME FOR ALL PAGES */
+nav {
+  background: linear-gradient(135deg, #20c997, #0d6efd);
+  height: 70px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* animation */
+  animation: navFloatIn 0.9s ease-out;
+}
+
+/* LOGO */
+.nav-logo {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* LINKS */
+.nav-links a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+  opacity: 0.85;
+}
+
+/* underline animation */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #ffeb3b;
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* NAVBAR ENTRY ANIMATION */
+@keyframes navFloatIn {
+  from {
+    transform: translateY(-25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* ================= REGISTER TITLE EFFECT ================= */
+.auth-right h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #1fa2c7, #20c997, #1c8db3, #ffb347);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 4s ease infinite, floatTitle 3s ease-in-out infinite;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Gradient animation (shared with login page) */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating animation (shared with login page) */
+@keyframes floatTitle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+/* REGISTER PAGE TITLE */
+.auth-left h1.register-title {
+  font-size: 44px;
+  font-weight: 800;
+  color: #fff; /* fallback */
+  background: linear-gradient(90deg, #ff7f50, #ffeb3b, #1fa2c7, #20c997);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.25), 0 0 12px rgba(255,255,255,0.2);
+  animation: gradientAnimation 6s ease infinite, floatTitle 4s ease-in-out infinite;
+  text-align: center;
+}
+
+/* FLOATING ANIMATION */
+@keyframes floatTitle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* GRADIENT ANIMATION */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* REGISTER PAGE TITLE */
+.auth-left h1.register-title {
+  font-size: 32px; /* medium size */
+  font-weight: 700;
+  color: #ffffff; /* fallback */
+  background: linear-gradient(90deg, #ff8c42, #ffd700, #1fa2c7, #20c997);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.25), 0 0 10px rgba(255,255,255,0.2);
+  animation: gradientAnimation 6s ease infinite, floatTitle 4s ease-in-out infinite;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* FLOATING ANIMATION */
+@keyframes floatTitle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px); /* smaller float for medium size */
+  }
+}
+
+/* GRADIENT ANIMATION */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

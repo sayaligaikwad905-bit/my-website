@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Provider Dashboard | LocalEase</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="dashboard.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="dashboard-nav">
+  <div class="nav-logo">LocalEase</div>
+  <div class="nav-links">
+    <a href="#">Dashboard</a>
+    <a href="#">Requests</a>
+    <a href="#">Profile</a>
+    <a href="login.html">Logout</a>
+  </div>
+</nav>
+
+<!-- DASHBOARD -->
+<section class="dashboard">
+  <h1>Welcome, Service Provider 🔧</h1>
+  <p class="subtitle">Manage your services efficiently</p>
+
+  <div class="card-container">
+
+    <!-- AVAILABILITY -->
+    <div class="dash-card">
+      <i class="fas fa-toggle-on"></i>
+      <h3>Availability</h3>
+      <p>Toggle your availability status</p>
+      <button onclick="toggleStatus()">Available</button>
+    </div>
+
+    <!-- SERVICE REQUESTS -->
+    <div class="dash-card">
+      <i class="fas fa-clipboard-list"></i>
+      <h3>Service Requests</h3>
+      <p>View nearby customer requests</p>
+    </div>
+
+    <!-- RATINGS -->
+    <div class="dash-card">
+      <i class="fas fa-chart-line"></i>
+      <h3>Ratings</h3>
+      <p>Track customer feedback & ratings</p>
+    </div>
+
+    <!-- VERIFICATION STATUS -->
+    <div class="dash-card">
+      <i class="fas fa-user-check"></i>
+      <h3>Verification Status</h3>
+      <p>Status: <strong style="color: green;">Approved</strong></p>
+    </div>
+
+    <!-- SERVICE CATEGORY -->
+    <div class="dash-card">
+      <i class="fas fa-tools"></i>
+      <h3>My Services</h3>
+      <p>Plumber, Electrician</p>
+    </div>
+
+    <!-- LOCATION & RADIUS -->
+    <div class="dash-card">
+      <i class="fas fa-location-dot"></i>
+      <h3>Service Area</h3>
+      <p>Working Radius: 5 km</p>
+    </div>
+
+    <!-- LEADS SUMMARY -->
+    <div class="dash-card">
+      <i class="fas fa-phone-volume"></i>
+      <h3>Leads Summary</h3>
+      <p>Calls Received: 18</p>
+    </div>
+
+    <!-- ADMIN MESSAGE -->
+    <div class="dash-card">
+      <i class="fas fa-envelope-open-text"></i>
+      <h3>Admin Message</h3>
+      <p>No issues found ✔</p>
+    </div>
+
+  </div>
+</section>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | LocalEase</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">LocalEase</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+  </div>
+</nav>
+
+<!-- LOGIN WRAPPER -->
+<div class="auth-wrapper">
+
+  <!-- LEFT SIDE -->
+  <div class="auth-left">
+    <h1>LocalEase</h1>
+    <p>Your Trusted Local Service Partner</p>
+    <ul class="feature-list">
+      <li><i class="fas fa-check-circle"></i> Verified Professionals</li>
+      <li><i class="fas fa-clock"></i> Quick Booking</li>
+      <li><i class="fas fa-tags"></i> Affordable Pricing</li>
+      <li><i class="fas fa-location-dot"></i> Nearby Services</li>
+    </ul>
+    <img src="illustration.png" alt="Services Illustration" class="illustration">
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="auth-right">
+    <h2>Login</h2>
+
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+
+      <select id="role" required>
+        <option value="">Select Role</option>
+        <option value="user">User</option>
+        <option value="provider">Service Provider</option>
+        <option value="admin">Admin</option>
+      </select>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <a href="register.html">New user? Create account</a>
+  </div>
+
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const role = document.getElementById("role").value;
+
+  if (!email || !password || !role) {
+    alert("All fields are required");
+    return;
+  }
+
+  try {
+    const response = await fetch("http://localhost:5000/users/login", { // ✅ Use correct backend route
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email, password }) // ✅ Role is validated in backend
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      alert(data.message || "Login failed");
+      return;
+    }
+
+    // ✅ Save JWT token and role
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("role", data.role);
+
+    alert("Login successful!");
+
+    // ✅ Role-based redirect
+    if (data.role === "admin") {
+      window.location.href = "admin-dashboard.html";
+    } else if (data.role === "provider") {
+      window.location.href = "provider-dashboard.html";
+    } else {
+      window.location.href = "user-dashboard.html";
+    }
+
+  } catch (error) {
+    console.error(error);
+    alert("Server error. Please check if backend is running.");
+  }
+});
+</script>
+
+</body>
+</html>
