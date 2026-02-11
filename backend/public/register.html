@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Register | LocalEase</title>
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="register.css">
 </head>
@@ -19,7 +18,6 @@
 </nav>
 
 <div class="auth-wrapper">
-
   <div class="auth-left">
     <h1>Join LocalEase</h1>
     <p>Your trusted local service partner</p>
@@ -29,23 +27,22 @@
     <h2>Create Account</h2>
 
     <form id="registerForm">
-      <input type="text" id="name" placeholder="Full Name">
-      <input type="email" id="email" placeholder="Email">
-      <input type="password" id="password" placeholder="Password (min 6 chars)">
-      <input type="password" id="confirmPassword" placeholder="Confirm Password">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password (min 3 chars)" required>
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
 
-      <select id="role">
+      <select id="role" required>
         <option value="">Select Role</option>
         <option value="user">User</option>
         <option value="provider">Service Provider</option>
-      </select>
+        <option value="admin">Admin</option> </select>
 
       <button type="submit">Register</button>
     </form>
 
     <p>Already have an account? <a href="login.html">Login</a></p>
   </div>
-
 </div>
 
 <script>
@@ -64,8 +61,9 @@ document.getElementById("registerForm").addEventListener("submit", async functio
     return;
   }
 
-  if (password.length < 6) {
-    alert("❌ Password must be at least 6 characters");
+  // Changed to 3 for your '123' password test
+  if (password.length < 3) { 
+    alert("❌ Password must be at least 3 characters");
     return;
   }
 
@@ -76,6 +74,7 @@ document.getElementById("registerForm").addEventListener("submit", async functio
 
   /* ================= API CALL ================= */
   try {
+    // Using the full URL ensures it connects even if you open the file directly
     const response = await fetch("http://localhost:5000/users/register", {
       method: "POST",
       headers: {
@@ -85,7 +84,7 @@ document.getElementById("registerForm").addEventListener("submit", async functio
         name,
         email,
         password,
-        role
+        role 
       })
     });
 
@@ -100,8 +99,8 @@ document.getElementById("registerForm").addEventListener("submit", async functio
     window.location.href = "login.html";
 
   } catch (err) {
-    console.error(err);
-    alert("❌ Cannot connect to server");
+    console.error("Connection Error:", err);
+    alert("❌ Cannot connect to server. Check if VS Code terminal shows 'Server running'.");
   }
 });
 </script>
