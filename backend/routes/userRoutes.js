@@ -1,64 +1,81 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../config/db");
+const User = require("../models/user");
 
 /* ================= REGISTER ================= */
 router.post("/register", (req, res) => {
   const { name, email, password, role } = req.body;
 
-  // Validation
   if (!name || !email || !password || !role) {
     return res.status(400).json({ message: "All fields are required" });
   }
 
-  // Check email already exists
-  db.query(
-    "SELECT id FROM users WHERE email = ?",
-    [email],
-    (err, result) => {
-      if (err) return res.status(500).json({ message: "Database error" });
+  const newUser = new User(name, email, password, role);
 
-      if (result.length > 0) {
-        return res.status(409).json({ message: "Email already registered" });
-      }
+  User.register(db, newUser, (err, result) => {
+    if (err) return res.status(500).json({ message: "Database error" });
 
-      // Insert user
-      db.query(
-        "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)",
-        [name, email, password, role],
-        (err) => {
-          if (err)
-            return res.status(500).json({ message: "Registration failed" });
-
-          res.status(201).json({
-            message: "Registration successful",
-          });
-        }
-      );
+    if (result.error) {
+      return res.status(409).json({ message: result.error });
     }
-  );
+
+    res.status(201).json({ message: result.success });
+  });
 });
 
 /* ================= LOGIN ================= */
 router.post("/login", (req, res) => {
   const { email, password, role } = req.body;
 
-  db.query(
-    "SELECT * FROM users WHERE email = ? AND password = ? AND role = ?",
-    [email, password, role],
-    (err, result) => {
-      if (err) return res.status(500).json({ message: "Database error" });
+  if (!email || !password || !role) {
+    return res.status(400).json({ message: "All fields required" });
+  }
 
-      if (result.length === 0) {
-        return res.status(401).json({ message: "Invalid credentials" });
-      }
+  User.login(db, email, password, role, (err, result) => {
+    if (err) return res.status(500).json({ message: "Database error" });
 
-      res.json({
-        message: "Login successful",
-        user: result[0],
-      });
+    if (result.error) {
+      return res.status(401).json({ message: result.error });
     }
-  );
-});
 
+    res.json({
+      message: result.success,
+      token: "localEaseDummyToken123",
+      user: result.user,
+    });
+  });
+});
+// ================= BOOK SERVICE =================
+router.post("/book-service", (req, res) => {
+    const { user_id, service_id, booking_date, booking_time } = req.body;
+
+    if (!user_id || !service_id || !booking_date || !booking_time) {
+        return res.status(400).json({ error: "All fields are required" });
+    }
+
+    // Convert AM/PM to 24-hour format
+    function convertTo24Hour(time) {
+        const [t, modifier] = time.split(" ");
+        let [hours, minutes] = t.split(":");
+        hours = parseInt(hours);
+        if (modifier === "PM" && hours !== 12) hours += 12;
+        if (modifier === "AM" && hours === 12) hours = 0;
+        return `${hours.toString().padStart(2,"0")}:${minutes}:00`;
+    }
+
+    const booking_date_time = `${booking_date} ${convertTo24Hour(booking_time)}`;
+
+    const query = `
+        INSERT INTO bookings (user_id, service_id, booking_date, status)
+        VALUES (?, ?, ?, ?)
+    `;
+    db.query(query, [user_id, service_id, booking_date_time, "Active"], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: "Database error" });
+        }
+        res.json({ success: "Booking created successfully" });
+    });
+});
 module.exports = router;

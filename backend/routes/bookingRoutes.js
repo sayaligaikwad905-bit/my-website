@@ -1,9 +1,26 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const controller = require('../controllers/bookingcontrollers');
-const { verifyToken } = require('../middleware/auth');
+const db = require("../config/db");
+const Booking = require("../models/booking");
 
-router.get('/', verifyToken, controller.getBookings);
-router.post('/', verifyToken, controller.createBooking);
+// Get all bookings for a user
+router.get("/user/:id", (req, res) => {
+    const userId = req.params.id;
+
+    Booking.getAllByUser(db, userId, (err, result) => {
+        if (err) return res.status(500).json({ message: "Database error" }); // Experiment 3: error handling
+        res.json(result);
+    });
+});
+
+// Add a booking
+router.post("/add", (req, res) => {
+    const { userId, serviceName, date, status, amount } = req.body;
+
+    Booking.addBooking(db, { userId, serviceName, date, status, amount }, (err, result) => {
+        if (err) return res.status(500).json({ message: "Database error" }); // runtime handling
+        res.json({ message: result.success });
+    });
+});
 
 module.exports = router;

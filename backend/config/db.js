@@ -3,8 +3,8 @@ const mysql = require("mysql2");
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "",
-  database: "localease",
+  password: "",        // XAMPP default password is empty
+  database: "localease"
 });
 
 db.connect((err) => {
